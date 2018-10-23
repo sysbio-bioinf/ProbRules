@@ -10,4 +10,4 @@
 ## incoherent feed-forward loop
 { time swipl -l motifcodes/iffl1.pl > output/iffl1-out.txt 2>output/iffl1-err.txt ; } 2>output/iffl1-time.txt
 ## single input module
-{ time swipl -l motifcodes/single.pl > output/single-out.txt 2>output/single-err.txt ; } 2>output/single-time.txt
+{ time swipl -l motifcodes/sim.pl > output/sim-out.txt 2>output/sim-err.txt ; } 2>output/sim-time.txt
