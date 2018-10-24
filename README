@@ -1,0 +1,29 @@
+ProbRules
+
+1. System requirements
+ProbRules is implemented in SWI-Prolog (v. 7.6.4), which offers a comprehensive free Prolog environment. SWI-Prolog is available for all major operating systems at http://www.swi-prolog.org. There is also an official docker image of SWI-Prolog at https://hub.docker.com/_/swipl.
+
+2. Installation guide
+Implementation of ProbRules is available in the file ProbRules.pl. For implementing own networks, this file has to be loaded via consult('ProbRules.pl').
+
+3. Demo
+For demo usage see implementation of network motifs and the Wnt-model supplied here. Expected output and runtime are available in folder output.
+See also run_motifs.sh and run_wntmodel.sh for logging errors and time to folder output.
+
+4. Instruction for use
+Network files can be run via swipl -l filename.pl from a terminal.
+
+The docker image can be used to run files via (see also Docker help):
+a) Linux:
+docker run --rm -it -v $(pwd)/ProbRules:/ProbRules -w /ProbRules swipl filename.pl
+
+b) Mac OS:
+DIRNAME=`dirname "$0"`
+docker run --rm -it -v $DIRNAME/ProbRules:/ProbRules -w /ProbRules swipl filename.pl
+
+c) Windows:
+docker-machine start
+docker-machine env
+@FOR /f "tokens=*" %%i IN ('docker-machine env') DO @%%i
+powershell -NoProfile -ExecutionPolicy Bypass -command "docker run -v (($pwd -replace 'C', '/c' -replace ':', '' -replace '\\', '/')+'/ProbRules:/ProbRules') -w /ProbRules --rm -ti swipl filename.pl"
+docker-machine stop
